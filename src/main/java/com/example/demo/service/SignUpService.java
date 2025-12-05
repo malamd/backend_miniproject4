@@ -5,7 +5,8 @@ import com.example.demo.dto.UserDTO;
 
 import java.util.NoSuchElementException;
 
-public class SignInService {
+public class SignUpService {
+    RepositorySomething userRepository;
     /**
      * 화원 가입 서비스
      * @param user 신규 회원 dto
@@ -14,7 +15,7 @@ public class SignInService {
     public User createAccount(UserDTO user){
         isDuplicatedMailAddress(user);
         User saved =  userRepository.save();
-        if(saved == null) throw new NoSuchElementException(ACCO); // 만약 저장에 문제가 있다면 오류 메시지 출력
+        if(saved == null) throw new NoSuchElementException("저장에 문제가 생김.."); // 만약 저장에 문제가 있다면 오류 메시지 출력
         return saved;
     }
     private void isDuplicatedMailAddress(UserDTO user){
