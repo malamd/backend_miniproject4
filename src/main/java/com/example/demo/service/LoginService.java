@@ -23,8 +23,7 @@ public class LoginService {
             throw new IllegalArgumentException(ACCOUNT_SERVICE_ERROR_MESSAGE.
                     WRONG_PASSWORD.content()); // 패스워드가 맞지 않는 경우
 
-        LoginUserDTO loginUserDTO = new LoginUserDTO();
-        return loginUserDTO;
+        return LoginUserDTO.fromEntity(user);
     }
 
 
