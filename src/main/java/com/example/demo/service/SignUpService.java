@@ -37,7 +37,7 @@ public class SignUpService {
     // helper <- 필요할시 변경
     private User toEntity(UserDTO userDTO){
         User user = new User();
-        user.setUserEmail(userDTO.getName());
+//        user.setUserEmail(userDTO.getName());
         user.setPassword(userDTO.getPassword());
         user.setName(userDTO.getName());
         user.setGender(userDTO.getGender());

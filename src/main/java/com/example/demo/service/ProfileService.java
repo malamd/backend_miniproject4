@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 @Transactional
 
-/**
+/*
  *original : -
  * edited :  이민영 (12/08/2025)
  */
@@ -35,7 +35,29 @@ public class ProfileService {
        userRepository.save(user);
     }
 
-    // 3) 회원 삭제
+    /*
+    // 3) 이메일 변경
+    public void changeUserEmail(Long userId, String newUserEmail) {
+        User user = userRepository.findById(userId)
+                .orElseThrow(() -> new RuntimeException("User not found"));
+
+        user.setUserEmail(newUserEmail);
+        // @Transactional 덕분에 save() 없어도 flush 되지만, 보기 좋게 남겨두어도 OK
+        userRepository.save(user);
+    }
+    */
+
+    // 4) 닉네임 변경
+    public void changeName(Long userId, String newName) {
+        User user = userRepository.findById(userId)
+                .orElseThrow(() -> new RuntimeException("User not found"));
+
+        user.setName(newName);
+        // @Transactional 덕분에 save() 없어도 flush 되지만, 보기 좋게 남겨두어도 OK
+        userRepository.save(user);
+    }
+
+    // 5) 회원 삭제
     public void deleteUser(Long userId) {
         User user = userRepository.findById(userId)
                 .orElseThrow(() -> new RuntimeException("User not found"));
