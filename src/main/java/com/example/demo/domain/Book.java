@@ -25,7 +25,7 @@ public class Book {
     @Column(nullable = false, length = 300)
     private String content;
 
-    @Column
+    @Column(length = 2000)
     private String coverImageUrl;
 
     @Column(name = "created_at")
