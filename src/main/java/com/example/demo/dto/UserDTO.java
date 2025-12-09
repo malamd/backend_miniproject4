@@ -11,10 +11,10 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 public class UserDTO { // TODO: setting validations
-    private String userEmail;
+//    private String userEmail;
     private String password;
     private String name;
     private User.Gender gender;
-    private int age;
-    private User.Role role;
+//    private int age;
+//    private User.Role role;
 }

@@ -43,7 +43,7 @@ public class Book {
     private User user;
 
     public enum Category{
-        NOVEL, COMIC, SCIENCE, IT, ART, HISTORY
+        로맨스, SF, 공포, 추리, 역사, 시
     }
 
     @PrePersist

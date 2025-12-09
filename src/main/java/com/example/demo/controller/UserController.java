@@ -19,6 +19,7 @@ import java.util.Map;
 public class UserController {
     private final LoginService loginService;
     private final SignUpService signUpService;
+
     @PostMapping("/login")
     public ResponseEntity<Object> login(@RequestBody LoginRequestDTO request){
         Map<String, Object> resp = new HashMap<>();

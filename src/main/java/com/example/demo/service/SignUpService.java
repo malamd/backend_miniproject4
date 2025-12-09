@@ -27,8 +27,8 @@ public class SignUpService {
         return true;
     }
     private void isDuplicatedMailAddress(UserDTO user){
-        String address = user.getUserEmail();
-        if(userRepository.findByUserEmail(address).isPresent()) throw new IllegalArgumentException(
+        String address = user.getName();
+        if(userRepository.findByName(address).isPresent()) throw new IllegalArgumentException(
                         ACCOUNT_SERVICE_ERROR_MESSAGE.DUPLICATED_ADDRESS.content()); // 중복된 이메일인 경우
 
     }
@@ -37,12 +37,12 @@ public class SignUpService {
     // helper <- 필요할시 변경
     private User toEntity(UserDTO userDTO){
         User user = new User();
-        user.setUserEmail(userDTO.getUserEmail());
+        user.setUserEmail(userDTO.getName());
         user.setPassword(userDTO.getPassword());
         user.setName(userDTO.getName());
         user.setGender(userDTO.getGender());
-        user.setAge(userDTO.getAge());
-        user.setRole(userDTO.getRole());
+//        user.setAge(userDTO.getAge());
+//        user.setRole(userDTO.getRole());
         return user;
     }
 }

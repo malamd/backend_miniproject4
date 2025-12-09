@@ -47,7 +47,7 @@ public class User {
 
 
     public enum Gender{
-        MALE, FEMALE
+        male, female, other
     }
 
     public enum Role{

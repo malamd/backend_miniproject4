@@ -12,19 +12,20 @@ import com.example.demo.repository.UserRepository;
 public class LoginService {
     private final UserRepository userRepository;
 
-    public LoginUserDTO login(LoginRequestDTO request){
-        String email = request.getUserEmail();
+    public LoginUserDTO login(LoginRequestDTO request) {
+        String name = request.getName();
         String password = request.getPassword();
-        User user = userRepository.findByUserEmail(email)
-                .orElseThrow(() ->  new IllegalArgumentException(ACCOUNT_SERVICE_ERROR_MESSAGE // 주어진 이메일이 없는 경우
-                        .EMAIL_NOT_FOUND.content()));
 
-        if (!password.equals(user.getPassword()))
-            throw new IllegalArgumentException(ACCOUNT_SERVICE_ERROR_MESSAGE.
-                    WRONG_PASSWORD.content()); // 패스워드가 맞지 않는 경우
+        User user = userRepository.findByName(name)
+                .orElseThrow(() -> new IllegalArgumentException("존재하지 않는 아이디입니다."));
+
+        if (!password.equals(user.getPassword())) {
+            throw new IllegalArgumentException("비밀번호가 일치하지 않습니다.");
+        }
 
         return LoginUserDTO.fromEntity(user);
     }
+
 
 
 }
