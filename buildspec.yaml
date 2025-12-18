@@ -1,0 +1,26 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      java: corretto17
+    commands:
+      - echo "Installing Java 17"
+  pre_build:
+    commands:
+      - echo "Setting execute permissions for gradlew"
+      - chmod +x ./gradlew
+  build:
+    commands:
+      - echo "Starting Gradle build"
+      - ./gradlew build
+      - echo "Gradle build finished"
+
+artifacts:
+  files:
+    - build/libs/*.jar
+  discard-paths: yes
+
+cache:
+  paths:
+    - '/root/.gradle/caches/**/*'
